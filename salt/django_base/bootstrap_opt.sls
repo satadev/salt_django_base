@@ -146,7 +146,7 @@ params_opt:
     cmd.run:
         - shell: /bin/bash
         - user: {{ admin_user }}
-        - name: mv /opt/{{ project_name }}/static_root/* /opt/{{ project_name }}/static
+        - name: rsync -av /opt/{{ project_name }}/static_root/ /opt/{{ project_name }}/static
         - unless: ls /opt/{{ project_name }}/static/admin
 
 {% endif %}
