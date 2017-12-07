@@ -2,7 +2,6 @@
 from __future__ import unicode_literals
 
 {% set project_name = salt['pillar.get']('project_name') %}
-{% set allowed_hosts = salt['pillar.get'](project_name + ':allowed_hosts') %}
 
 """
 Django settings for {{ project_name }} project.
@@ -31,7 +30,7 @@ SECRET_KEY = '$dy76%yq4sv$cnm_nm8!g)n$@qr_q8n$l9g_1gkk83)i1*v+dh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [{% for host in allowed_hosts %}{% if not loop.first %}, {% endif %}'{{ host }}'{% endfor %}]
+ALLOWED_HOSTS = []
 
 
 # Application definition
